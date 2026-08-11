@@ -1,0 +1,14 @@
+services:
+  go-template:
+    build: .
+    container_name: go-template
+    environment:
+      GO_TEMPLATE_IN_CONTAINER: "1"
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    # Keep the container alive so you can docker exec into it.
+    command: sleep infinity
