@@ -1,9 +1,9 @@
 services:
-  go-template:
+  golang-tutorial:
     build: .
-    container_name: go-template
+    container_name: golang-tutorial
     environment:
-      GO_TEMPLATE_IN_CONTAINER: "1"
+      GOLANG_TUTORIAL_IN_CONTAINER: "1"
     volumes:
       - .:/workspace
     working_dir: /workspace

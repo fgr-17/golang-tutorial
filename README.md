@@ -1,4 +1,4 @@
-# go-template
+# golang-tutorial
 
 Minimal Golang repository template with Docker, tests/coverage, style tooling,
 static analysis, and API doc generation.
@@ -91,3 +91,18 @@ make build
 ./bin/hello
 ./bin/hello Alice
 ```
+
+## Golang tutorial
+
+Create go module:
+
+~~~bash
+go mod init <module path> << can correspond to a repo
+go mod init booking-app
+~~~
+
+Run main package:
+
+~~~bash
+go run main.go
+~~~

@@ -1,3 +1,3 @@
-module github.com/fgr-17/go-template
+module booking-app
 
-go 1.22
+go 1.22.12

@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# Shared defaults for go-template scripts. Source from other scripts.
+# Shared defaults for golang-tutorial scripts. Source from other scripts.
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "${ROOT_DIR}"
 
 APP="${APP:-hello}"
-MODULE="${MODULE:-github.com/fgr-17/go-template}"
-CMD_PKG="${CMD_PKG:-./cmd/hello}"
+MODULE="${MODULE:-github.com/fgr-17/golang-tutorial}"
+CMD_PKG="${CMD_PKG:-./}"
 BIN_DIR="${BIN_DIR:-bin}"
 BIN="${BIN:-${BIN_DIR}/${APP}}"
 
@@ -30,7 +30,7 @@ GO_BUILDFLAGS="${GO_BUILDFLAGS:--buildvcs=false}"
 CYCLO_OVER="${CYCLO_OVER:-10}"
 DUPL_THRESHOLD="${DUPL_THRESHOLD:-50}"
 
-DOCKER_SERVICE="${DOCKER_SERVICE:-go-template}"
+DOCKER_SERVICE="${DOCKER_SERVICE:-golang-tutorial}"
 
 # Prefer Compose V2 plugin; fall back to legacy docker-compose.
 if [[ -n "${DOCKER_COMPOSE:-}" ]]; then
