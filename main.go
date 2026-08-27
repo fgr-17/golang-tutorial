@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func main() {
@@ -26,41 +27,53 @@ func main() {
 	bookings[1] = "juancito"
 	bookings[2] = "carmencita"
 
-	var firstName string
-	var lastName string
-	var email string
-	var userTickets uint
-
-	fmt.Println("Enter your first name: ")
-	fmt.Scan(&firstName)
-	fmt.Println("Enter your last name: ")
-	fmt.Scan(&lastName)
-	fmt.Println("Enter your email: ")
-	fmt.Scan(&email)
-	fmt.Println("Enter number of tickets: ")
-	fmt.Scan(&userTickets)
-
-	bookings[len(bookings)-1] = firstName + " " + lastName
-	fmt.Printf("The whole array: %v\n", bookings)
-	fmt.Printf("The first value: %v\n", bookings[0])
-	fmt.Printf("Array type: %T\n", bookings)
-	fmt.Printf("Array length: %v\n", len(bookings))
-
-	remainingTickets = remainingTickets - userTickets
-
-	fmt.Printf("Thank you %v %v for booking %v tickets\n", firstName, lastName, userTickets)
-	fmt.Printf("You will receive a confirmation email at %v\n", email)
-	fmt.Printf("There are %v tickets remaining for %v\n", remainingTickets, conferenceName)
-
-	// slices: dynamic size, same type
-	// abstraction of array
-	// variable lenght, get sub-array
-
 	var bookingsSlice []string
-	// var bookingsSlice = []string{"andres", "juancito", "carmencita"}
-	bookingsSlice = append(bookingsSlice, firstName+" "+lastName)
-	fmt.Printf("The whole slice: %v\n", bookingsSlice)
-	fmt.Printf("The first value: %v\n", bookingsSlice[0])
-	fmt.Printf("Slice type: %T\n", bookingsSlice)
-	fmt.Printf("Slice length: %v\n", len(bookingsSlice))
+
+	for {
+		var firstName string
+		var lastName string
+		var email string
+		var userTickets uint
+
+		fmt.Println("Enter your first name: ")
+		fmt.Scan(&firstName)
+		fmt.Println("Enter your last name: ")
+		fmt.Scan(&lastName)
+		fmt.Println("Enter your email: ")
+		fmt.Scan(&email)
+		fmt.Println("Enter number of tickets: ")
+		fmt.Scan(&userTickets)
+
+		bookings[len(bookings)-1] = firstName + " " + lastName
+		fmt.Printf("The whole array: %v\n", bookings)
+		fmt.Printf("The first value: %v\n", bookings[0])
+		fmt.Printf("Array type: %T\n", bookings)
+		fmt.Printf("Array length: %v\n", len(bookings))
+
+		remainingTickets = remainingTickets - userTickets
+
+		fmt.Printf("Thank you %v %v for booking %v tickets\n", firstName, lastName, userTickets)
+		fmt.Printf("You will receive a confirmation email at %v\n", email)
+		fmt.Printf("There are %v tickets remaining for %v\n", remainingTickets, conferenceName)
+
+		// slices: dynamic size, same type
+		// abstraction of array
+		// variable lenght, get sub-array
+
+		// var bookingsSlice = []string{"andres", "juancito", "carmencita"}
+		bookingsSlice = append(bookingsSlice, firstName+" "+lastName)
+		fmt.Printf("The whole slice: %v\n", bookingsSlice)
+		fmt.Printf("The first value: %v\n", bookingsSlice[0])
+		fmt.Printf("Slice type: %T\n", bookingsSlice)
+		fmt.Printf("Slice length: %v\n", len(bookingsSlice))
+
+		firstNames := []string{}
+		// range: iterate over a collection and return the index and the value
+		for _, booking := range bookingsSlice {
+			var names = strings.Fields(booking)
+			firstNames = append(firstNames, names[0])
+		}
+		fmt.Printf("The first names: %v\n", firstNames)
+	}
+
 }
